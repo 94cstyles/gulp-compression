@@ -1,0 +1,38 @@
+{
+  "name": "gulp-compression",
+  "version": "1.0.0",
+  "description": "gulp压缩插件，使用tinypng压缩图片。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yppFE/gulp-compression.git"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "author": "cstyles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yppFE/gulp-compression/issues"
+  },
+  "homepage": "https://github.com/yppFE/gulp-compression#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp": "github:gulpjs/gulp#4.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "gulp-util": "^3.0.8",
+    "request": "^2.81.0",
+    "through2": "^2.0.3",
+    "tinify": "^1.5.0"
+  }
+}
