@@ -4,11 +4,10 @@
   "description": "gulp压缩插件，使用tinypng压缩图片。",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yppFE/gulp-compression.git"
+    "url": "git+https://github.com/94cstyles/gulp-compression.git"
   },
   "engines": {
     "node": ">=6"
@@ -16,9 +15,9 @@
   "author": "cstyles",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yppFE/gulp-compression/issues"
+    "url": "https://github.com/94cstyles/gulp-compression/issues"
   },
-  "homepage": "https://github.com/yppFE/gulp-compression#readme",
+  "homepage": "https://github.com/94cstyles/gulp-compression#readme",
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.0",
