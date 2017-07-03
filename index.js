@@ -97,12 +97,18 @@ module.exports = function (tokens = ['L5Iyfv0_IJkc26IFIxfkUcUBmo9bE-xH', 'o3u-F7
   tokens = tokens instanceof Array ? tokens : [tokens]
 
   let cache = {}
-  const cacheFilePath = pth.join(process.cwd(), 'gulp.compression.lock')
+  const cacheFilePath = pth.join(process.cwd(), 'compression-lock.json')
 
   // 读取缓存 如果格式错误会重置
   if (fs.existsSync(cacheFilePath)) {
     try {
       cache = JSON.parse(fs.readFileSync(cacheFilePath, 'utf8'))
+      // 检测文件路径是否发生变化
+      for (let key in cache) {
+        if (!fs.existsSync(pth.join(process.cwd(), key))) {
+          delete cache[key]
+        }
+      }
     } catch (e) {
       cache = {}
     }
@@ -123,6 +129,7 @@ module.exports = function (tokens = ['L5Iyfv0_IJkc26IFIxfkUcUBmo9bE-xH', 'o3u-F7
         cache[relative] = utils.md5(res[1], 12) // 存储缓存
         fs.writeFileSync(file.path, res[1]) // 替换原文件
         file.contents = res[1]
+        fs.writeFileSync(cacheFilePath, JSON.stringify(cache)) // 每次处理完都将保存压缩信息
         this.push(file)
         cb()
       }).catch((err) => {
@@ -132,8 +139,5 @@ module.exports = function (tokens = ['L5Iyfv0_IJkc26IFIxfkUcUBmo9bE-xH', 'o3u-F7
     } else {
       cb(null, file)
     }
-  }, function (cb) {
-    fs.writeFileSync(cacheFilePath, JSON.stringify(cache)) // 保存压缩信息
-    cb()
   })
 }
